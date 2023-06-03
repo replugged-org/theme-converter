@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Replugged Theme Converter</title>
+  </head>
+  <body>
+    <h1>BetterDiscord → Replugged Theme Converter</h1>
+    <h3>Instructions</h3>
+    <ol>
+      <li>Download a <a href="https://betterdiscord.app/themes">BetterDiscord theme</a> (.theme.css).</li>
+      <li>Upload it to the file picker below.</li>
+      <li>Click "Convert" and allow the download if needed.</li>
+      <li>Move the resulting .asar file to your Replugged themes folder.</li>
+      <li>Click "Load missing themes" in Discord settings → Themes to apply the theme.</li>
+    </ol>
+    <form>
+      <input type="file" accept="text/css" id="bdcss" />
+      <input type="button" value="Convert" id="convertbtn" />
+    </form>
+    <script type="module">
+      import { convertTheme } from "./convert-theme.js";
+      const convertButton = document.getElementById("convertbtn");
+      const fileInput = document.getElementById("bdcss");
+      convertButton.onclick = () => {
+        if (fileInput.files.length) {
+          convertTheme(fileInput.files[0])
+            .catch(err => void alert(err));
+        }
+      }
+    </script>
+  </body>
+</html>
