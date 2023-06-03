@@ -1,0 +1,12 @@
+body {
+  font-family: Arial, sans-serif;
+  /*line-height: 1.3rem;*/
+  background-color: rgb(20,27,38);
+  color: white;
+}
+
+a {
+  color: rgb(255, 32, 62);
+}
+
+/* Backdrop: rgb(20,27,38) */
